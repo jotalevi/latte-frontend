@@ -1,0 +1,12 @@
+.small-footer-frame,
+.small-footer-frame * {
+  box-sizing: border-box;
+}
+.small-footer-frame {
+  background: #381222;
+  flex-shrink: 0;
+  width: 100%;
+  height: 32px;
+  position: relative;
+  overflow: hidden;
+}

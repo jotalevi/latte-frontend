@@ -1,0 +1,55 @@
+.text-input {
+  transition: all;
+  transition-duration: 200ms;
+  box-sizing: border-box;
+  background: #cacaca;
+  border-radius: 5px;
+  flex-shrink: 0;
+  width: 350px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  color: #4b4a4a;
+  text-align: left;
+  font: 400 20px "SeoulHangangCbl-Regular", sans-serif;
+}
+
+.text-input:focus {
+  transition: all;
+  transition-duration: 200ms;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 5px;
+  flex-shrink: 0;
+  width: 350px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  color: #4b4a4a;
+  text-align: left;
+  font: 400 20px "SeoulHangangCbl-Regular", sans-serif;
+}
+
+.text-input:hover {
+  transition: all;
+  transition-duration: 200ms;
+  box-sizing: border-box;
+  background: #cacaca;
+  border-radius: 5px;
+  border-color: #f980b3;
+  flex-shrink: 0;
+  width: 350px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  color: #4b4a4a;
+  text-align: left;
+  font: 400 20px "SeoulHangangCbl-Regular", sans-serif;
+}
+
+.invalid {
+  transition: all;
+  transition-duration: 200ms;
+  border-radius: 5px !important;
+  border: 2px solid rgb(227, 9, 9) !important;
+}

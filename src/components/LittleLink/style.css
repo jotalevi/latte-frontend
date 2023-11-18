@@ -1,0 +1,15 @@
+.little-links {
+  transition: all;
+  transition-duration: 200ms;
+  box-sizing: border-box;
+  color: #ff539b;
+  text-align: left;
+  font: 400 12px "SeoulHangangCbl-Regular", sans-serif;
+  position: relative;
+}
+
+.little-links:hover {
+  transition: all;
+  transition-duration: 200ms;
+  color: #ffffff !important;
+}
