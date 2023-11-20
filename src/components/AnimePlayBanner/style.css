@@ -1,0 +1,25 @@
+.player {
+  display: flex;
+  width: 100% !important;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.frameitem {
+  height: 500px !important;
+  width: 100%;
+  padding: 0 !important;
+  margin-left: 25 !important;
+  margin-left: 25 !important;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-type: x mandatory;
+}
+
+iframe {
+  border: none;
+}

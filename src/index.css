@@ -1,3 +1,7 @@
+:root {
+  --loading-grey: #ededed;
+}
+
 body {
   margin: 0;
   background: #18070e;

@@ -7,6 +7,8 @@ import DevPage from "./pages/DevPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import NewCommersPage from "./pages/NewCommersPage";
+import HomePage from "./pages/HomePage";
+import AnimePage from "./pages/AnimePage";
 
 const router = createBrowserRouter([
   {
@@ -18,12 +20,26 @@ const router = createBrowserRouter([
     element: <DevPage />,
   },
   {
+    path: "/home",
+    element: <HomePage />,
+  },
+
+  {
     path: "/login",
     element: <LoginPage />,
   },
   {
     path: "/register",
     element: <RegisterPage />,
+  },
+  {
+    path: "/a/:anime_id",
+    element: <AnimePage />,
+  },
+
+  {
+    path: "/a/:anime_id/:episode_id",
+    element: <DevPage />,
   },
 ]);
 

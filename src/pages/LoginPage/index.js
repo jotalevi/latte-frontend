@@ -1,15 +1,18 @@
 import "./style.css";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import TextButton from "../../components/TextButton";
 import TextInput from "../../components/TextInput";
 import LittleLink from "../../components/LittleLink";
 import AlertCard from "../../components/AlertCard";
-import Api from "../../utils/Api";
+
+import BackendApis from "../../utils/BackendApis";
 
 function LoginPage() {
+  const navigate = useNavigate();
   const [usernameValue, setUsernameValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
 
@@ -21,9 +24,19 @@ function LoginPage() {
     setPasswordValue(event.target.value);
   };
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    Api.login(usernameValue.toString(), passwordValue.toString());
+    if (
+      await BackendApis.login(
+        usernameValue.toString(),
+        passwordValue.toString()
+      )
+    )
+      navigate("/home");
+    else {
+      console.log("wrong password");
+    }
+    //BackendApis.getPopular(1);
   }
 
   return (
@@ -43,7 +56,9 @@ function LoginPage() {
             onChange={handlePassWordChange}
             password={true}
           />
-          <LittleLink text="Forgot your password?" />
+          <Link to="/password-reset">
+            <LittleLink text="Forgot your password?" />
+          </Link>
           <TextButton
             type="primary"
             style={{ width: "350px" }}

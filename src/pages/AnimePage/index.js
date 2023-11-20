@@ -6,30 +6,27 @@ import NavBar from "../../components/NavBar";
 
 import BackendApis from "../../utils/BackendApis";
 import { useParams } from "react-router-dom";
-import AnimePlayBanner from "../../components/AnimePlayBanner";
+import AnimePageBanner from "../../components/AnimePageBanner";
+import EpisodesGrid from "../../components/EpisodesGrid";
 
-function DevPage() {
+function AnimePage() {
   let params = useParams();
-
   const [pageData, setPageData] = useState({});
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const fetchData = async () => {
     try {
       let _userData = await BackendApis.getUserData();
-      let _pageData = await BackendApis.getEpisode(
-        params.anime_id,
-        params.episode_id
-      );
+      let _pageData = await BackendApis.getAnime(params.anime_id);
 
       setPageData({ page: _pageData, user: _userData });
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <div className="full-screen-div-home">
@@ -40,7 +37,14 @@ function DevPage() {
             userTick={pageData.user.username.slice(0, 2).toUpperCase()}
           />
           <div className="home-page-scree-flex">
-            <AnimePlayBanner animeData={pageData.page} />
+            <AnimePageBanner animeData={pageData.page} />
+            <div className="subts-text">
+              eps 1 - {pageData.page.episodes.length}{" "}
+            </div>
+            <EpisodesGrid
+              animeId={pageData.page.anime}
+              episodes={pageData.page.episodes}
+            />
           </div>
         </>
       ) : (
@@ -50,4 +54,4 @@ function DevPage() {
   );
 }
 
-export default DevPage;
+export default AnimePage;

@@ -1,0 +1,220 @@
+.anime-card {
+  transition: all;
+  transition-duration: 200ms;
+  background: rgba(96, 32, 59, 0);
+  position: relative;
+  overflow: hidden;
+  width: 18%;
+  height: 400px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  border-radius: 0px;
+}
+
+.anime-card-img-bg {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: contain;
+  position: absolute;
+  z-index: -1000;
+}
+.anime-card:hover {
+  transition: all;
+  transition-duration: 200ms;
+  background: rgba(96, 32, 59, 0.5);
+  border-radius: 10px;
+}
+
+.anime-card:hover > .anime-card-data-stack {
+  transition: all;
+  transition-duration: 200ms;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  background: linear-gradient(
+    207.03deg,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgb(0, 0, 0) 80%
+  );
+}
+
+.anime-card-data-stack {
+  transition: all;
+  transition-duration: 200ms;
+
+  width: 100%;
+  padding: 10px;
+  padding-top: 360px;
+  padding-bottom: 0px;
+  height: 100%;
+  background: linear-gradient(
+    207.03deg,
+    rgba(0, 0, 0, 0) 10%,
+    rgb(0, 0, 0) 80%
+  );
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.crumple-data {
+  transition: all;
+  transition-duration: 200ms;
+  opacity: 1;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.anime-card:hover > .crumple-data {
+  transition: all;
+  transition-duration: 200ms;
+  opacity: 0;
+  position: absolute;
+  bottom: 400px;
+  left: 10px;
+}
+
+.anime-card-data-stack-topper {
+  transition: all;
+  transition-duration: 200ms;
+  opacity: 0;
+  max-height: 250px;
+}
+
+.anime-card:hover > .anime-card-data-stack > .anime-card-data-stack-topper {
+  transition: all;
+  transition-duration: 200ms;
+  opacity: 1;
+  max-height: 250px;
+}
+
+.anime-card-data-stack-bottom {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 99;
+  background: linear-gradient(181deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 70%);
+}
+
+.anime-cardback {
+  position: relative;
+  overflow: hidden;
+}
+
+.anime-card-title {
+  color: #ffffff;
+  text-align: left;
+  font: 400 20px "SeoulHangangCbl-Regular", sans-serif;
+  position: relative;
+}
+
+.anime-card-shortk {
+  color: rgba(255, 255, 255, 0.65);
+  text-align: left;
+  font: 400 14px "SeoulHangangCbl-Regular", sans-serif;
+  position: relative;
+}
+
+.anime-card-descript {
+  margin-top: 25px;
+  color: #ffffff;
+  text-align: left;
+  font: 400 14px "SeoulHangangCbl-Regular", sans-serif;
+  position: relative;
+  text-overflow: ellipsis;
+}
+
+.icons-fill {
+  transition: all;
+  transition-duration: 200ms;
+  fill: #f980b3 !important;
+}
+
+.icons-fill:hover {
+  transition: all;
+  transition-duration: 200ms;
+  fill: #ffb5d4 !important;
+}
+
+.anime-skeleton-card {
+  background-color: rgba(255, 255, 255, 0.129);
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  border-radius: 10px;
+  min-width: 300px !important;
+  min-height: 400px !important;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.fields {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-top: 332px;
+  margin-left: 10px;
+}
+
+.anime-skeleton-card .anime-card-fields-big {
+  width: 200px;
+  height: 30px;
+  border-radius: 0px;
+
+  background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.145) 50%,
+      rgba(255, 255, 255, 0) 60%
+    )
+    rgba(255, 255, 255, 0.176);
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1s loading ease-in-out infinite;
+}
+
+.anime-skeleton-card .anime-card-fields-small {
+  margin-top: 10px;
+  width: 120px;
+  height: 15px;
+  border-radius: 0px;
+
+  background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.145) 50%,
+      rgba(255, 255, 255, 0) 60%
+    )
+    rgba(255, 255, 255, 0.176);
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}

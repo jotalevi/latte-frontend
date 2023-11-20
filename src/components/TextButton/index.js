@@ -7,7 +7,8 @@ function TextButton(props) {
       onClick={props.onClick}
       style={props.style}
     >
-      {props.text}
+      {props.children}
+      {props.text ? props.text : ""}
     </div>
   );
 }
