@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 function NavBar(props) {
+  const navigate = useNavigate();
   return (
     <>
       <div className="nav-bar-frame nav-shadow"></div>
       <div className="nav-bar-frame">
-        <Link to="/home">
-          <div className="title-div">Latte</div>
-        </Link>
+        <div
+          className="title-div"
+          onClick={() => {
+            navigate(`/home`);
+          }}
+        >
+          Latte
+        </div>
         <div className="right-hand-actions-frame">
           {props.showUserMenus ? (
             <>
