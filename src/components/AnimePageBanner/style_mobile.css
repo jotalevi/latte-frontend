@@ -1,4 +1,4 @@
-@media only screen and (min-width: 601px) {
+@media only screen and (max-width: 600px) {
   .home-page-carrousel {
     display: flex;
     width: 100% !important;
@@ -42,7 +42,7 @@
   .icr-title {
     color: #ffffff;
     text-align: left;
-    font: 400 64px "SeoulHangangCbl-Regular", sans-serif;
+    font: 400 32px "SeoulHangangCbl-Regular", sans-serif;
     position: relative;
   }
   .icr-description {

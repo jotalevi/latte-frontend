@@ -1,23 +1,25 @@
-.home-page-scree-flex {
-  width: 100%;
-}
+@media only screen and (min-width: 601px) {
+  .home-page-scree-flex {
+    width: 100%;
+  }
 
-.full-screen-div-home {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-}
+  .full-screen-div-home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
-.subts-text {
-  color: #ffffff;
-  text-align: left;
-  font: 400 32px "SeoulHangangCbl-Regular", sans-serif;
-  position: relative;
-  padding: 50px;
-  padding-bottom: 25px;
-  padding-top: 25px;
+  .subts-text {
+    color: #ffffff;
+    text-align: left;
+    font: 400 32px "SeoulHangangCbl-Regular", sans-serif;
+    position: relative;
+    padding: 50px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+  }
 }

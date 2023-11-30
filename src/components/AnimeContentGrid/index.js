@@ -1,18 +1,7 @@
 import "./style.css";
+import "./style_mobile.css";
 
 import AnimeContentPlayCard from "../AnimeContentPlayCard";
-
-const arrChunk = function* (itr, size) {
-  let chunk = [];
-  for (const v of itr) {
-    chunk.push(v);
-    if (chunk.length === size) {
-      yield chunk;
-      chunk = [];
-    }
-  }
-  if (chunk.length) yield chunk;
-};
 
 function AnimeContentGrid(props) {
   if (props.skeleton) {
@@ -30,18 +19,14 @@ function AnimeContentGrid(props) {
 
   let animeCards = [];
 
-  for (const chunks of arrChunk(props.cardsData, 5)) {
-    let chunkCards = [];
-    for (const anime of chunks) {
-      chunkCards.push(
-        <AnimeContentPlayCard
-          skeleton={false}
-          animeData={anime}
-          isFavorite={props.favorites.includes(anime.anime)}
-        />
-      );
-    }
-    animeCards.push(<div className="subts-row">{chunkCards}</div>);
+  for (const anime of props.cardsData) {
+    animeCards.push(
+      <AnimeContentPlayCard
+        skeleton={false}
+        animeData={anime}
+        isFavorite={props.favorites.includes(anime.anime)}
+      />
+    );
   }
 
   return <div className="subts-grid">{animeCards}</div>;

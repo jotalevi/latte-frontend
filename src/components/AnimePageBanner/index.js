@@ -1,5 +1,6 @@
-import TextButton from "../TextButton";
 import "./style.css";
+import "./style_mobile.css";
+import TextButton from "../TextButton";
 
 function AnimePageBanner(props) {
   return (

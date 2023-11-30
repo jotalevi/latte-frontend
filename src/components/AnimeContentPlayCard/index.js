@@ -1,4 +1,5 @@
 import "./style.css";
+import "./style_mobile.css";
 
 import { useNavigate } from "react-router-dom";
 
@@ -6,10 +7,16 @@ function AnimeContentPlayCard(props) {
   const navigate = useNavigate();
   if (props.skeleton) {
     return (
-      <div className="anime-skeleton-card">
+      <div
+        className={"anime-skeleton-card " + (props.static ? "transparent" : "")}
+      >
         <div className="fields">
-          <div className="anime-card-fields-big"></div>
-          <div className="anime-card-fields-small"></div>
+          <div
+            className={"anime-card-fields-big " + props.static ? "static" : ""}
+          ></div>
+          <div
+            className={"anime-card-fields-small" + props.static ? "static" : ""}
+          ></div>
         </div>
       </div>
     );

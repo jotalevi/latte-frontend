@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import "./style.css";
+import "./style_mobile.css";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function NavBar(props) {

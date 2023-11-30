@@ -1,4 +1,5 @@
 import "./style.css";
+import "./style_mobile.css";
 
 function AlertCard(props) {
   return (

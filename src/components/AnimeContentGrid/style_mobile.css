@@ -1,4 +1,4 @@
-@media only screen and (min-width: 601px) {
+@media only screen and (max-width: 600px) {
   .subts-grid {
     display: flex;
     flex-direction: row;
@@ -6,8 +6,8 @@
     align-content: center;
     justify-content: space-between;
     align-items: center;
-    padding-left: 50px;
-    padding-right: 50px;
-    gap: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 15px;
   }
 }

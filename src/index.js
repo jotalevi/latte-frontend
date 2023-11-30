@@ -2,6 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import "./index_mobile.css";
 
 import DevPage from "./pages/DevPage";
 import LoginPage from "./pages/LoginPage";
@@ -14,7 +15,7 @@ import SearchPage from "./pages/SearchPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NewCommersPage />,
+    element: <LoginPage />,
   },
   {
     path: "/dev",

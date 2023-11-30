@@ -1,4 +1,4 @@
-@media only screen and (min-width: 601px) {
+@media only screen and (max-width: 600px) {
   .home-page-carrousel {
     display: flex;
     width: 100% !important;
@@ -18,9 +18,10 @@
     flex-wrap: nowrap;
     align-content: center;
     justify-content: flex-start;
-    padding-left: 50px;
+    padding-left: 10px !important;
     align-items: center;
     scroll-snap-type: x mandatory;
+    max-height: 200px;
 
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -42,7 +43,7 @@
   .icr-title {
     color: #ffffff;
     text-align: left;
-    font: 400 64px "SeoulHangangCbl-Regular", sans-serif;
+    font: 400 32px "SeoulHangangCbl-Regular", sans-serif;
     position: relative;
   }
   .icr-description {
@@ -52,6 +53,7 @@
     position: relative;
   }
   .icr-text-content {
+    display: none;
     color: #ffffff;
     text-align: left;
     font: 400 16px "SeoulHangangCbl-Regular", sans-serif;

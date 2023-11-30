@@ -1,9 +1,10 @@
 import "./style.css";
+import "./style_mobile.css";
 
 import AnimeContentPlayCard from "../AnimeContentPlayCard";
 
 function AnimeContentRow(props) {
-  if (props.skeleton) { 
+  if (props.skeleton) {
     return (
       <div className="subts-row">
         <AnimeContentPlayCard skeleton={true} />
@@ -25,6 +26,10 @@ function AnimeContentRow(props) {
         isFavorite={props.favorites.includes(anime.anime)}
       />
     );
+  }
+
+  while (animeCards.length % 5 != 0) {
+    animeCards.push(<AnimeContentPlayCard skeleton={true} static={true} />);
   }
 
   return <div className="subts-row">{animeCards}</div>;
