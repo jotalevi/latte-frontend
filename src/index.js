@@ -9,6 +9,7 @@ import RegisterPage from "./pages/RegisterPage";
 import NewCommersPage from "./pages/NewCommersPage";
 import HomePage from "./pages/HomePage";
 import AnimePage from "./pages/AnimePage";
+import SearchPage from "./pages/SearchPage";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,10 @@ const router = createBrowserRouter([
     path: "/a/:anime_id",
     element: <AnimePage />,
   },
-
+  {
+    path: "/s",
+    element: <SearchPage />,
+  },
   {
     path: "/a/:anime_id/:episode_id",
     element: <DevPage />,

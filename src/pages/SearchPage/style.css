@@ -1,0 +1,47 @@
+.home-page-scree-flex {
+  width: 100%;
+}
+
+.full-screen-div-home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.contain-input {
+  width: 100% !important;
+  height: 300px !important;
+  background: linear-gradient(180deg, #381222 0%, #38122200 100%);
+  display: flex;
+  width: 100% !important;
+  height: 200px !important;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-input {
+  transition: all;
+  transition-duration: 200ms;
+  font: 400 24px "SeoulHangangCbl-Regular", sans-serif;
+  outline: none;
+  color: rgb(124, 124, 124);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgb(124, 124, 124);
+  width: 500px;
+  height: 35px;
+}
+
+.search-input:focus {
+  transition: all;
+  transition-duration: 200ms;
+  color: white;
+  border-bottom: 2px solid white;
+}

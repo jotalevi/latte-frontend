@@ -8,8 +8,10 @@ import BackendApis from "../../utils/BackendApis";
 import HomePageCarruosel from "../../components/HomePageCarruosel";
 import AnimeContentRow from "../../components/AnimeContentRow";
 import AnimeContentGrid from "../../components/AnimeContentGrid";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
+  let navigate = useNavigate();
   const [pageData, setPageData] = useState({});
 
   useEffect(() => {
@@ -28,7 +30,7 @@ function HomePage() {
 
       setPageData({ user: _userData, page: _pageData, favs: _favs });
     } catch (error) {
-      console.error("Error fetching data:", error);
+      navigate("/login");
     }
   };
 

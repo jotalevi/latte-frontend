@@ -5,29 +5,35 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar";
 
 import BackendApis from "../../utils/BackendApis";
-import { useParams } from "react-router-dom";
-import AnimePageBanner from "../../components/AnimePageBanner";
-import EpisodesGrid from "../../components/EpisodesGrid";
 import { useNavigate } from "react-router-dom";
 
-function AnimePage() {
-  let params = useParams();
+function SearchPage() {
   let navigate = useNavigate();
   const [pageData, setPageData] = useState({});
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const [queryStr, setQueryStr] = useState("");
 
   const fetchData = async () => {
     try {
       let _userData = await BackendApis.getUserData();
-      let _pageData = await BackendApis.getAnime(params.anime_id);
+      let _pageData = {};
 
-      setPageData({ page: _pageData, user: _userData });
+      if (queryStr !== "") {
+        _pageData = await BackendApis.getSearch(queryStr);
+        console.log(_pageData);
+      }
+
+      setPageData({ user: _userData, page: _pageData });
     } catch (error) {
       navigate("/login");
     }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [queryStr]);
+
+  const onChange = async (event) => {
+    setQueryStr(event.target.value);
   };
 
   return (
@@ -39,14 +45,14 @@ function AnimePage() {
             userTick={pageData.user.username.slice(0, 2).toUpperCase()}
           />
           <div className="home-page-scree-flex">
-            <AnimePageBanner animeData={pageData.page} />
-            <div className="subts-text">
-              eps 1 - {pageData.page.episodes.length}{" "}
+            <div className="contain-input">
+              <input
+                className="search-input"
+                value={pageData.queryStr}
+                onChange={onChange}
+                placeholder="Search..."
+              />
             </div>
-            <EpisodesGrid
-              animeId={pageData.page.anime}
-              episodes={pageData.page.episodes}
-            />
           </div>
         </>
       ) : (
@@ -56,4 +62,4 @@ function AnimePage() {
   );
 }
 
-export default AnimePage;
+export default SearchPage;

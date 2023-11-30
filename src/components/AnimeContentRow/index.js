@@ -3,7 +3,7 @@ import "./style.css";
 import AnimeContentPlayCard from "../AnimeContentPlayCard";
 
 function AnimeContentRow(props) {
-  if (props.skeleton) {
+  if (props.skeleton) { 
     return (
       <div className="subts-row">
         <AnimeContentPlayCard skeleton={true} />

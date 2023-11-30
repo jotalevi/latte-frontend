@@ -34,9 +34,8 @@ function LoginPage() {
     )
       navigate("/home");
     else {
-      console.log("wrong password");
+      navigate("/login");
     }
-    //BackendApis.getPopular(1);
   }
 
   return (

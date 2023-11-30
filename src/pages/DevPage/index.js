@@ -7,8 +7,10 @@ import NavBar from "../../components/NavBar";
 import BackendApis from "../../utils/BackendApis";
 import { useParams } from "react-router-dom";
 import AnimePlayBanner from "../../components/AnimePlayBanner";
+import { useNavigate } from "react-router-dom";
 
 function DevPage() {
+  let navigate = useNavigate();
   let params = useParams();
 
   const [pageData, setPageData] = useState({});
@@ -23,7 +25,7 @@ function DevPage() {
 
       setPageData({ page: _pageData, user: _userData });
     } catch (error) {
-      console.error("Error fetching data:", error);
+      navigate("/login");
     }
   };
 

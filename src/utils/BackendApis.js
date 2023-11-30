@@ -1,4 +1,7 @@
 export default class BackendApis {
+  static baseUri = "http://3.93.153.211";
+  static userData = false;
+
   static async login(username, password) {
     const requestOptions = {
       method: "POST",
@@ -10,7 +13,7 @@ export default class BackendApis {
     };
 
     let data = await (
-      await fetch("http://localhost:3001/u/login", requestOptions)
+      await fetch(`${this.baseUri}/u/login`, requestOptions)
     ).json();
 
     if (data.error_code || !data.token) return false;
@@ -21,7 +24,7 @@ export default class BackendApis {
   }
 
   static async getUserData() {
-    if (this.token === undefined) return {};
+    if (this.token === undefined) return false;
 
     const requestOptions = {
       method: "GET",
@@ -31,9 +34,7 @@ export default class BackendApis {
       },
     };
 
-    let data = await (
-      await fetch("http://localhost:3001/u/", requestOptions)
-    ).json();
+    let data = await (await fetch(`${this.baseUri}/u/`, requestOptions)).json();
 
     if (data.error_code) return false;
 
@@ -52,7 +53,7 @@ export default class BackendApis {
     };
 
     let data = await (
-      await fetch("http://localhost:3001/homepage", requestOptions)
+      await fetch(`${this.baseUri}/homepage`, requestOptions)
     ).json();
 
     if (data.error_code) return false;
@@ -72,7 +73,7 @@ export default class BackendApis {
     };
 
     let data = await (
-      await fetch(`http://localhost:3001/a/${id}`, requestOptions)
+      await fetch(`${this.baseUri}/a/${id}`, requestOptions)
     ).json();
 
     if (data.error_code) return false;
@@ -92,7 +93,27 @@ export default class BackendApis {
     };
 
     let data = await (
-      await fetch(`http://localhost:3001/a/${id}/${ep}`, requestOptions)
+      await fetch(`${this.baseUri}/a/${id}/${ep}`, requestOptions)
+    ).json();
+
+    if (data.error_code) return false;
+
+    return data;
+  }
+
+  static async getSearch(query) {
+    if (this.token === undefined) return {};
+
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.token}`,
+      },
+    };
+
+    let data = await (
+      await fetch(`${this.baseUri}/search?search_str=${query}`, requestOptions)
     ).json();
 
     if (data.error_code) return false;
