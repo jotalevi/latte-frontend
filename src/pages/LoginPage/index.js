@@ -11,7 +11,7 @@ import AlertCard from "../../components/AlertCard";
 
 import BackendApis from "../../utils/BackendApis";
 
-function LoginPage() {
+function LoginPage(props) {
   const navigate = useNavigate();
   const [usernameValue, setUsernameValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
@@ -37,6 +37,15 @@ function LoginPage() {
       navigate("/login");
     }
   }
+
+  const handleAuto = async () => {
+    if (await BackendApis.login(props.auto.username, props.auto.password))
+      navigate("/home");
+    else {
+      navigate("/login");
+    }
+  };
+  if (props.auto) handleAuto();
 
   return (
     <div className="full-screen-div-centers">

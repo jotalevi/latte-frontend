@@ -25,7 +25,6 @@ const router = createBrowserRouter([
     path: "/home",
     element: <HomePage />,
   },
-
   {
     path: "/login",
     element: <LoginPage />,
@@ -45,6 +44,12 @@ const router = createBrowserRouter([
   {
     path: "/a/:anime_id/:episode_id",
     element: <DevPage />,
+  },
+  {
+    path: "/auto",
+    element: (
+      <LoginPage auto={{ username: "jotalevi", password: "Roma_2022@" }} />
+    ),
   },
 ]);
 

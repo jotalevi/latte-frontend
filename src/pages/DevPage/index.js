@@ -44,6 +44,28 @@ function DevPage() {
           <div className="home-page-scree-flex">
             <AnimePlayBanner animeData={pageData.page} />
           </div>
+          <div className="prev-and-next-eps">
+            <div
+              className="switch-ep-bt"
+              onClick={() => {
+                console.log("click");
+                navigate(
+                  `/a/${pageData.page.anime}/${pageData.page.previousEp}`
+                );
+              }}
+            >
+              previous ep ({pageData.page.previousEp})
+            </div>
+            <div
+              className="switch-ep-bt"
+              onClick={() => {
+                console.log("click");
+                navigate(`/a/${pageData.page.anime}/${pageData.page.nextEp}`);
+              }}
+            >
+              next ep ({pageData.page.nextEp})
+            </div>
+          </div>
         </>
       ) : (
         <NavBar />
