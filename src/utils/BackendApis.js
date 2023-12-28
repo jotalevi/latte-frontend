@@ -1,5 +1,5 @@
 export default class BackendApis {
-  static baseUri = "http://3.93.153.211";
+  static baseUri = "http://latt3.com/api";
   static userData = false;
 
   static async login(username, password) {
