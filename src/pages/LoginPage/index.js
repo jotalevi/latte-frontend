@@ -9,10 +9,10 @@ import TextButton from "../../components/TextButton";
 import TextInput from "../../components/TextInput";
 import LittleLink from "../../components/LittleLink";
 import AlertCard from "../../components/AlertCard";
-
 import BackendApis from "../../utils/BackendApis";
 
 function LoginPage(props) {
+  const cookies = new Cookies();
   const navigate = useNavigate();
   const [usernameValue, setUsernameValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
@@ -41,13 +41,16 @@ function LoginPage(props) {
   }
 
   const handleAuto = async () => {
-    const cookies = new Cookies();
-    if (await BackendApis.renew(cookies.get("renew"))) {
-      navigate("/home");
-    } else {
-      navigate("/login");
+    if (!(await BackendApis.isLogedIn())) {
+      BackendApis.setRenew(cookies.get("renew"));
+      if (await BackendApis.renewToken()) {
+        navigate("/home");
+      } else {
+        navigate("/login");
+      }
     }
   };
+
   handleAuto();
 
   return (

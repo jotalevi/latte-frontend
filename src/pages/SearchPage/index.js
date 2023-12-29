@@ -24,7 +24,7 @@ function SearchPage() {
 
       setPageData({ user: _userData, page: _pageData });
     } catch (error) {
-      let renewResult = await BackendApis.renew();
+      let renewResult = await BackendApis.renewToken();
 
       if (!renewResult) {
         navigate("/login");
@@ -37,7 +37,7 @@ function SearchPage() {
         navigate("/login");
       }
 
-      setPageData({ user: _userData, page: _pageData, favs: _favs });
+      setPageData({ user: _userData, page: _pageData });
     }
   };
 

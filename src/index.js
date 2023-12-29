@@ -7,7 +7,6 @@ import "./index_mobile.css";
 import DevPage from "./pages/DevPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import NewCommersPage from "./pages/NewCommersPage";
 import HomePage from "./pages/HomePage";
 import AnimePage from "./pages/AnimePage";
 import SearchPage from "./pages/SearchPage";

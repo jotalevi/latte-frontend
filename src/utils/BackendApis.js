@@ -1,6 +1,17 @@
+import Cookies from "universal-cookie";
+
 export default class BackendApis {
+  static cookies = new Cookies();
   static baseUri = "http://latt3.com/api";
   static userData = false;
+
+  static async isLogedIn() {
+    return (await this.getUserData()) === false ? false : true;
+  }
+
+  static setRenew(renew) {
+    this.renew = renew;
+  }
 
   static getRenewToken() {
     return this.renew;
@@ -28,7 +39,7 @@ export default class BackendApis {
     return true;
   }
 
-  static async renew() {
+  static async renewToken() {
     if (this.renew === undefined) return false;
     const requestOptions = {
       method: "POST",
@@ -46,6 +57,8 @@ export default class BackendApis {
 
     this.token = data.token;
     this.renew = data.renew;
+
+    this.cookies.set("renew", data.renew, { path: "/" });
 
     return true;
   }

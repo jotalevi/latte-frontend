@@ -27,7 +27,7 @@ function AnimePage() {
 
       setPageData({ page: _pageData, user: _userData });
     } catch (error) {
-      let renewResult = await BackendApis.renew();
+      let renewResult = await BackendApis.renewToken();
 
       if (!renewResult) {
         navigate("/login");

@@ -31,7 +31,7 @@ function HomePage() {
 
       setPageData({ user: _userData, page: _pageData, favs: _favs });
     } catch (error) {
-      let renewResult = await BackendApis.renew();
+      let renewResult = await BackendApis.renewToken();
 
       if (!renewResult) {
         navigate("/login");
@@ -42,6 +42,11 @@ function HomePage() {
 
       if (!_userData || !_pageData) {
         navigate("/login");
+      }
+
+      let _favs = [];
+      for (const anime of _pageData.bookmark) {
+        _favs.push(anime.anime);
       }
 
       setPageData({ user: _userData, page: _pageData, favs: _favs });
