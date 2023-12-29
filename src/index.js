@@ -47,9 +47,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/auto",
-    element: (
-      <LoginPage auto={{ username: "jotalevi", password: "Roma_2022@" }} />
-    ),
+    element: <LoginPage />,
   },
 ]);
 
