@@ -27,7 +27,20 @@ function AnimePage() {
 
       setPageData({ page: _pageData, user: _userData });
     } catch (error) {
-      navigate("/login");
+      let renewResult = await BackendApis.renew();
+
+      if (!renewResult) {
+        navigate("/login");
+      }
+
+      let _userData = await BackendApis.getUserData();
+      let _pageData = await BackendApis.getAnime(params.anime_id);
+
+      if (!_userData || !_pageData) {
+        navigate("/login");
+      }
+
+      setPageData({ page: _pageData, user: _userData });
     }
   };
 

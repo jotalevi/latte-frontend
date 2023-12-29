@@ -2,6 +2,10 @@ export default class BackendApis {
   static baseUri = "http://latt3.com/api";
   static userData = false;
 
+  static getRenewToken() {
+    return this.renew;
+  }
+
   static async login(username, password) {
     const requestOptions = {
       method: "POST",
@@ -19,6 +23,29 @@ export default class BackendApis {
     if (data.error_code || !data.token) return false;
 
     this.token = data.token;
+    this.renew = data.renew;
+
+    return true;
+  }
+
+  static async renew() {
+    if (this.renew === undefined) return false;
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        token: this.renew.toString(),
+      }),
+    };
+
+    let data = await (
+      await fetch(`${this.baseUri}/u/renew`, requestOptions)
+    ).json();
+
+    if (data.error_code || !data.token) return false;
+
+    this.token = data.token;
+    this.renew = data.renew;
 
     return true;
   }

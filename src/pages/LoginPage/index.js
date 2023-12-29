@@ -1,4 +1,5 @@
 import "./style.css";
+import Cookies from "universal-cookie";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -31,21 +32,23 @@ function LoginPage(props) {
         usernameValue.toString(),
         passwordValue.toString()
       )
-    )
+    ) {
+      cookies.set("renew", BackendApis.getRenewToken(), { path: "/" });
       navigate("/home");
-    else {
+    } else {
       navigate("/login");
     }
   }
 
   const handleAuto = async () => {
-    if (await BackendApis.login(props.auto.username, props.auto.password))
+    const cookies = new Cookies();
+    if (await BackendApis.renew(cookies.get("renew"))) {
       navigate("/home");
-    else {
+    } else {
       navigate("/login");
     }
   };
-  if (props.auto) handleAuto();
+  handleAuto();
 
   return (
     <div className="full-screen-div-centers">
