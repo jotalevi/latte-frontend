@@ -6,6 +6,7 @@ function AnimePlayBanner(props) {
   return (
     <div className="player">
       <iframe
+        sandbox="allow-scripts"
         className="frameitem"
         src={props.animeData.media_url}
         allowfullscreen="true"
