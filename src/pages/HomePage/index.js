@@ -21,6 +21,7 @@ function HomePage() {
 
   const fetchData = async () => {
     try {
+      console.log(await BackendApis.isLogedIn());
       let _userData = await BackendApis.getUserData();
       let _pageData = await BackendApis.getHomePage();
 
@@ -31,25 +32,27 @@ function HomePage() {
 
       setPageData({ user: _userData, page: _pageData, favs: _favs });
     } catch (error) {
-      let renewResult = await BackendApis.renewToken();
-
-      if (!renewResult) {
-        navigate("/login");
-      }
-
-      let _userData = await BackendApis.getUserData();
-      let _pageData = await BackendApis.getHomePage();
-
-      if (!_userData || !_pageData) {
-        navigate("/login");
-      }
-
-      let _favs = [];
-      for (const anime of _pageData.bookmark) {
-        _favs.push(anime.anime);
-      }
-
-      setPageData({ user: _userData, page: _pageData, favs: _favs });
+      navigate("/login");
+      //let renewResult = await BackendApis.renewToken();
+      //
+      //if (!renewResult) {
+      //  navigate("/login");
+      //}
+      //
+      //let _userData = await BackendApis.getUserData();
+      //let _pageData = await BackendApis.getHomePage();
+      //
+      //if (!_userData || !_pageData) {
+      //  navigate("/login");
+      //}
+      //
+      //let _favs = [];
+      //if (typeof _pageData.bookmark[Symbol.iterator] === "function")
+      //  for (const anime of _pageData.bookmark) {
+      //    _favs.push(anime.anime);
+      //  }
+      //
+      //setPageData({ user: _userData, page: _pageData, favs: _favs });
     }
   };
 

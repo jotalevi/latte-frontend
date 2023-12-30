@@ -5,16 +5,15 @@ function AnimePlayBanner(props) {
   console.log(props.animeData);
   return (
     <div className="player">
-      <iframe
-        sandbox="allow-scripts"
+      <object
         className="frameitem"
-        src={props.animeData.media_url}
+        data={props.animeData.media_url}
         allowfullscreen="true"
         height="500"
         frameborder="0"
         marginwidth="0"
         marginheight="0"
-      ></iframe>
+      ></object>
     </div>
   );
 }

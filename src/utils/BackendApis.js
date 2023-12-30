@@ -39,6 +39,13 @@ export default class BackendApis {
     return true;
   }
 
+  static async renewTokenIfNotLogedIn() {
+    if (await this.isLogedIn()) {
+      return true;
+    }
+    return this.renewToken();
+  }
+
   static async renewToken() {
     if (this.renew === undefined) return false;
     const requestOptions = {

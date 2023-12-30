@@ -43,14 +43,13 @@ function LoginPage(props) {
   const handleAuto = async () => {
     if (cookies.get("renew")) {
       BackendApis.setRenew(cookies.get("renew"));
-      if (await BackendApis.renewToken()) {
+      if (await BackendApis.renewTokenIfNotLogedIn()) {
         navigate("/home");
       } else {
         navigate("/login");
       }
     }
   };
-
   handleAuto();
 
   return (

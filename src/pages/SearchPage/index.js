@@ -24,20 +24,21 @@ function SearchPage() {
 
       setPageData({ user: _userData, page: _pageData });
     } catch (error) {
-      let renewResult = await BackendApis.renewToken();
-
-      if (!renewResult) {
-        navigate("/login");
-      }
-
-      let _userData = await BackendApis.getUserData();
-      let _pageData = {};
-
-      if (!_userData || !_pageData) {
-        navigate("/login");
-      }
-
-      setPageData({ user: _userData, page: _pageData });
+      navigate("/login");
+      //let renewResult = await BackendApis.renewToken();
+      //
+      //if (!renewResult) {
+      //  navigate("/login");
+      //}
+      //
+      //let _userData = await BackendApis.getUserData();
+      //let _pageData = {};
+      //
+      //if (!_userData || !_pageData) {
+      //  navigate("/login");
+      //}
+      //
+      //setPageData({ user: _userData, page: _pageData });
     }
   };
 
