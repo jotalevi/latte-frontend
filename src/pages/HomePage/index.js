@@ -67,18 +67,29 @@ function HomePage() {
           <div className="home-page-scree-flex">
             <HomePageCarruosel />
 
-            <div className="subts-text">Continue Watching</div>
-            <AnimeContentRow
-              skeleton={false}
-              cardsData={pageData.page.continue}
-              favorites={pageData.favs}
-            />
-            <div className="subts-text">Bookmarks</div>
-            <AnimeContentRow
-              skeleton={false}
-              cardsData={pageData.page.bookmark}
-              favorites={pageData.favs}
-            />
+            { pageData.page.continue.length > 0 ? (
+              <>
+              <div className="subts-text">Continue Watching</div>
+              <AnimeContentRow
+                skeleton={false}
+                cardsData={pageData.page.continue}
+                favorites={pageData.favs}
+              />
+              </>
+            ) : (<></>) }
+            
+            { pageData.page.bookmark.length > 0 ? (
+              <>
+              <div className="subts-text">Bookmarks</div>
+              <AnimeContentRow
+                skeleton={false}
+                cardsData={pageData.page.bookmark}
+                favorites={pageData.favs}
+              />
+              </>
+            ) : (<></>) }  
+            
+            
 
             <div className="subts-text">Explore</div>
             <AnimeContentGrid

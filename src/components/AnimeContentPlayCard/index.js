@@ -10,14 +10,7 @@ function AnimeContentPlayCard(props) {
       <div
         className={"anime-skeleton-card " + (props.static ? "transparent" : "")}
       >
-        <div className="fields">
-          <div
-            className={"anime-card-fields-big " + props.static ? "static" : ""}
-          ></div>
-          <div
-            className={"anime-card-fields-small" + props.static ? "static" : ""}
-          ></div>
-        </div>
+      
       </div>
     );
   }
@@ -29,7 +22,7 @@ function AnimeContentPlayCard(props) {
         navigate(`/a/${props.animeData.anime}`);
       }}
     >
-      <img src={props.animeData.thumbnail} className="anime-card-img-bg" />
+      <img src={props.animeData.thumbnail} alt='anime' className="anime-card-img-bg" />
       <div className="crumple-data">
         <div className="anime-card-title">{props.animeData.title}</div>
         <div className="anime-card-shortk">{props.animeData.type}</div>

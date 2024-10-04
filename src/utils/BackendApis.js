@@ -2,7 +2,7 @@ import Cookies from "universal-cookie";
 
 export default class BackendApis {
   static cookies = new Cookies();
-  static baseUri = "http://latt3.com/api";
+  static baseUri = "http://localhost:3000/api";
   static userData = false;
 
   static async isLogedIn() {
@@ -18,6 +18,7 @@ export default class BackendApis {
   }
 
   static async login(username, password) {
+    console.log('login')
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -30,6 +31,8 @@ export default class BackendApis {
     let data = await (
       await fetch(`${this.baseUri}/u/login`, requestOptions)
     ).json();
+
+    console.log(data)
 
     if (data.error_code || !data.token) return false;
 

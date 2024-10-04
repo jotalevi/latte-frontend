@@ -48,6 +48,7 @@ function SearchPage() {
 
   const onChange = async (event) => {
     setQueryStr(event.target.value);
+    fetchData();
   };
 
   return (

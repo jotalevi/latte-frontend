@@ -3,9 +3,18 @@ import "./style_mobile.css";
 import TextButton from "../TextButton";
 
 function AnimePageBanner(props) {
+  
   return (
-    <div className="home-page-carrousel">
-      <div className="carrousel-item">
+    <div className="home-page-carrousel" style={{
+      backgroundImage: "url(" + props.animeData.og_image + ")",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}>
+      <div className="carrousel-item"
+      style={{
+        bacdropFilter: "blur(10px)",
+      }}>
         <div className="icr-left-items">
           <div className="icr-title">{props.animeData.title}</div>
           <div>

@@ -155,19 +155,21 @@
   }
 
   .anime-skeleton-card {
-    background-color: rgba(255, 255, 255, 0.129);
+    
+    background: rgba(255, 255, 255, 0.178);
     position: relative;
     overflow: hidden;
-    margin: 10px;
-    border-radius: 10px;
-    min-width: 300px !important;
-    min-height: 400px !important;
+    width: 48%;
+    height: 200px;
+
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: flex-start;
     justify-content: flex-start;
     align-items: flex-start;
+
+    border-radius: 0px;
   }
 
   .fields {
